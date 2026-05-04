@@ -239,7 +239,7 @@
         </a>
         <div class="topbar-actions">
             <a href="{{ url('/listagem') }}" class="topbar-link">📋 Ver listagem</a>
-            <a href="{{ url('/') }}" class="topbar-link">Sair</a>
+            <a href="{{ url('/menu') }}" class="topbar-link">Sair</a>
         </div>
     </header>
 
@@ -327,7 +327,7 @@
                             step="0.01"
                             min="0"
                             value="{{ old('preco', $alimento->preco ?? '') }}">
-                        <span class="field-hint">Opcional — valor unitário</span>
+                        <span class="field-hint">Valor unitário</span>
                     </div>
 
                 </div>

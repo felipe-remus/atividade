@@ -239,7 +239,7 @@
         </a>
         <div class="topbar-actions">
             <a href="{{ url('/listagem') }}" class="topbar-link">📋 Ver listagem</a>
-            <a href="{{ url('/') }}" class="topbar-link">Sair</a>
+            <a href="{{ url('/menu') }}" class="topbar-link">Sair</a>
         </div>
     </header>
 

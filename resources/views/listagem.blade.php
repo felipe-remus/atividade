@@ -247,7 +247,7 @@
         </a>
         <div class="topbar-actions">
             <a href="{{ url('/cadastro') }}" class="topbar-link">📦 Cadastrar</a>
-            <a href="{{ url('/') }}" class="topbar-link">Sair</a>
+            <a href="{{ url('/menu') }}" class="topbar-link">Sair</a>
         </div>
     </header>
 
@@ -285,17 +285,13 @@
                             <td class="td-name">Arroz</td>
                             <td><span class="badge">Alimento Perecivel</span></td>
                             <td>5</td>
-                            <td><span class="validity">29/04/2026</span>
-                            </td>
-                            <td>
-                                <span class="td-price">R$ 8,0</span>
-                            </td>
+                            <td><span class="validity">29/04/2026</span></td>
+                            <td><span class="td-price">R$ 8,0</span></td>
                             <td class="td-actions">
                                 <div class="actions-wrap">
                                     <a href="{{ url('/editar/')}}" class="btn-action btn-edit" title="Editar">✏️</a>
                                     <span class="btn-action btn-delete" title="Excluir">
-                                        <form action="{{ url('/delete/') }}" method="POST"
-                                                onsubmit="return confirm('Confirma a exclusão?')">
+                                        <form action="{{ url('/delete/') }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit">🗑️</button>
@@ -313,6 +309,5 @@
     <footer class="page-footer">
         <p>Despensa ONG &mdash; Sistema de gestão solidária de alimentos</p>
     </footer>
-
 </body>
 </html>
