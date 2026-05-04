@@ -254,7 +254,7 @@
         </div>
 
         <div class="form-card">
-            <form action="#" method="POST">
+            <form action="{{ url('/alimentos') }}" method="POST">
                 @csrf
                 @if(isset($alimento))
                     @method('PUT')
@@ -299,7 +299,7 @@
                             name="categoria"
                             class="field-input"
                             placeholder="Ex.: Grãos, Frutas, Enlatados, Bebidas"
-                            value="{{ old('nome', $alimento->nome ?? '') }}"
+                            value="{{ old('categoria', $alimento->categoria ?? '') }}"
                             required>
                     </div>
 
@@ -311,7 +311,8 @@
                             id="validade"
                             name="validade"
                             class="field-input"
-                            value="{{ old('validade', isset($alimento) ? \Carbon\Carbon::parse($alimento->validade)->format('Y-m-d') : '') }}"
+                            max="2099-12-31"
+                            value="..."
                             required>
                     </div>
 
@@ -327,7 +328,7 @@
                             step="0.01"
                             min="0"
                             value="{{ old('preco', $alimento->preco ?? '') }}">
-                        <span class="field-hint">Valor unitário</span>
+                        <span class="field-hint">Opcional — valor unitário</span>
                     </div>
 
                 </div>

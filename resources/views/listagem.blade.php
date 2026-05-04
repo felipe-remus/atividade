@@ -279,19 +279,20 @@
                             <th>Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
 
+                    <tbody>
+                        @foreach ($alimentos as $alimento)
                         <tr>
-                            <td class="td-name">Arroz</td>
-                            <td><span class="badge">Alimento Perecivel</span></td>
-                            <td>5</td>
-                            <td><span class="validity">29/04/2026</span></td>
-                            <td><span class="td-price">R$ 8,0</span></td>
+                            <td class="td-name">{{ $alimento->nome }}</td>
+                            <td><span class="badge">{{ $alimento->categoria }}</span></td>
+                            <td>{{ $alimento->quantidade }}</td>
+                            <td><span class="validity">{{ \Carbon\Carbon::parse($alimento->validade)->format('d/m/Y') }}</span></td>
+                            <td><span class="td-price">R$ {{ number_format($alimento->preco, 2, ',', '.') }}</span></td>
                             <td class="td-actions">
                                 <div class="actions-wrap">
-                                    <a href="{{ url('/editar/')}}" class="btn-action btn-edit" title="Editar">✏️</a>
+                                    <a href="{{ url('/alimentos/' . $alimento->id . '/edit') }}" class="btn-action btn-edit" title="Editar">✏️</a>
                                     <span class="btn-action btn-delete" title="Excluir">
-                                        <form action="{{ url('/delete/') }}" method="POST">
+                                        <form action="{{ url('/alimentos/' . $alimento->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit">🗑️</button>
@@ -300,6 +301,7 @@
                                 </div>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

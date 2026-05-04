@@ -18,22 +18,31 @@ class AlimentoController extends Controller
     }
 
     public function store(Request $request){
-        dd($request->all());
+        Alimento::create($request->all()); //insert into alimentos
+        
+        return redirect()->route('listagem');
     }
 
     public function update(Request $request, $id){
-        dd($request->all());
+        $alimento = Alimento::findOrFail($id); //select * from alimentos where id = $id
+
+        $alimento->update($request->all()); //update alimentos set ... where id = $id
+    
+        return redirect()->route('listagem');
     }
 
     public function destroy($id){
-        Alimento::finOrfall($id)->delete(); //delete from alimentos where id = $id
+        Alimento::findOrFail($id)->delete(); //delete from alimentos where id = $id
+    
+        return redirect()->route('listagem');
     }
 
     public function create(){
         return view('cadastro');
     }
 
-    public function edit(){
-        return view('editar');
+    public function edit($id){
+        $alimento = Alimento::findOrFail($id);
+        return view('editar', compact('alimento'));
     }
 }

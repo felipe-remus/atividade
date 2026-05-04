@@ -254,7 +254,7 @@
         </div>
 
         <div class="form-card">
-            <form action="{{ isset($alimento) ? url('/alimento/'.$alimento->id) : url('/alimento') }}" method="POST">
+            <form action="{{ url('/alimentos/' . $alimento->id) }}" method="POST">
                 @csrf
                 @if(isset($alimento))
                     @method('PUT')
@@ -299,7 +299,7 @@
                             name="categoria"
                             class="field-input"
                             placeholder="Ex.: Grãos, Frutas, Enlatados, Bebidas"
-                            value="{{ old('nome', $alimento->nome ?? '') }}"
+                            value="{{ old('categoria', $alimento->categoria ?? '') }}"
                             required>
                     </div>
 
