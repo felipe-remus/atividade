@@ -11,17 +11,11 @@ Route::match(['get', 'post'], '/menu', function () {
     return view('menu');
 });
 
-Route::get('/cadastro', function () {
-    return view('cadastro');
-});
+//Route::get('/cadastro', function () {return view('cadastro');});
 
-Route::post('/editar', function () {
-    return view('editar');
-});
+//Route::post('/editar', function () {return view('editar');});
 
-Route::get('/listagem', function () {
-    return view('listagem');
-});
+//Route::get('/listagem', function () {return view('listagem');});
 
 //Rotas para Select
 Route::get('/listagem', [AlimentoController::class, 'index'])->name('listagem');
