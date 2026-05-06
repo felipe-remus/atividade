@@ -11,12 +11,6 @@ Route::match(['get', 'post'], '/menu', function () {
     return view('menu');
 });
 
-//Route::get('/cadastro', function () {return view('cadastro');});
-
-//Route::post('/editar', function () {return view('editar');});
-
-//Route::get('/listagem', function () {return view('listagem');});
-
 Route::get('/alimentos/{id}/edit', [AlimentoController::class, 'edit'])->name('edit');
 Route::put('/alimentos/{id}', [AlimentoController::class, 'update'])->name('update');
 Route::delete('/alimentos/{id}', [AlimentoController::class, 'destroy'])->name('destroy');
